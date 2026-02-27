@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --radius: 0.75rem;
+  
+  /* Light mode */
+  --color-background: #f8fafc;
+  --color-foreground: #0f172a;
+  --color-card: #ffffff;
+  --color-card-foreground: #0f172a;
+  --color-primary: #6366f1;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #334155;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  --color-accent: #e0e7ff;
+  --color-accent-foreground: #3730a3;
+  --color-border: #e2e8f0;
+  --color-input: #e2e8f0;
+  --color-ring: #6366f1;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-success: #22c55e;
+  --color-success-foreground: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-4 py-2 rounded-lg font-medium
+      hover:opacity-90 transition-all duration-200 active:scale-[0.98]
+      disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground px-4 py-2 rounded-lg font-medium
+      hover:bg-accent transition-all duration-200 active:scale-[0.98]
+      disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply text-muted-foreground px-4 py-2 rounded-lg font-medium
+      hover:bg-secondary transition-all duration-200 active:scale-[0.98];
+  }
+
+  .btn-destructive {
+    @apply bg-destructive text-destructive-foreground px-4 py-2 rounded-lg font-medium
+      hover:opacity-90 transition-all duration-200 active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply border border-border text-foreground px-4 py-2 rounded-lg font-medium
+      hover:bg-secondary transition-all duration-200 active:scale-[0.98];
+  }
+
+  .card {
+    @apply bg-card text-card-foreground rounded-lg border border-border shadow-sm;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 bg-card text-foreground border border-input rounded-lg
+      placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring
+      transition-all duration-200;
+  }
+
+  .avatar {
+    @apply rounded-full object-cover bg-muted;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-muted rounded-md;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+      bg-accent text-accent-foreground;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-foreground);
+}

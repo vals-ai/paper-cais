@@ -1,0 +1,14 @@
+FROM node:22-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --silent
+COPY . .
+ARG VITE_SUPABASE_URL
+ARG VITE_SUPABASE_ANON_KEY
+ARG APP_PUBLIC_PORT
+ARG APP_PUBLIC_URL
+# Write env for Vite build
+RUN printf "VITE_SUPABASE_URL=%s\nVITE_SUPABASE_ANON_KEY=%s\nAPP_PUBLIC_PORT=%s\nAPP_PUBLIC_URL=%s\n" "$VITE_SUPABASE_URL" "$VITE_SUPABASE_ANON_KEY" "$APP_PUBLIC_PORT" "$APP_PUBLIC_URL" > .env
+RUN npm run build
+EXPOSE 4173
+CMD ["sh", "-c", "node scripts/seed.js || true; npm run preview -- --host 0.0.0.0 --port 4173"]

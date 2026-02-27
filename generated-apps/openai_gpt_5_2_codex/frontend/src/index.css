@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --background: 220 28% 98%;
+  --foreground: 224 24% 16%;
+  --card: 0 0% 100%;
+  --card-foreground: 224 24% 16%;
+  --muted: 220 22% 94%;
+  --muted-foreground: 220 12% 42%;
+  --primary: 262 83% 58%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 198 78% 42%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 178 80% 40%;
+  --accent-foreground: 0 0% 100%;
+  --border: 220 16% 88%;
+  --input: 220 16% 88%;
+  --ring: 262 83% 58%;
+  --success: 146 55% 42%;
+  --success-foreground: 0 0% 100%;
+  --warning: 36 90% 54%;
+  --warning-foreground: 28 35% 20%;
+  --shadow: 228 30% 30%;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: 225 24% 10%;
+  --foreground: 220 18% 94%;
+  --card: 225 22% 14%;
+  --card-foreground: 220 18% 94%;
+  --muted: 225 18% 20%;
+  --muted-foreground: 220 10% 65%;
+  --primary: 262 83% 64%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 198 78% 48%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 178 70% 45%;
+  --accent-foreground: 0 0% 100%;
+  --border: 225 18% 24%;
+  --input: 225 18% 24%;
+  --ring: 262 83% 64%;
+  --success: 146 55% 45%;
+  --success-foreground: 0 0% 100%;
+  --warning: 36 90% 58%;
+  --warning-foreground: 28 35% 15%;
+  --shadow: 225 32% 12%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans min-h-screen antialiased;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+}
+
+@layer components {
+  .app-container {
+    @apply mx-auto w-full max-w-6xl px-6;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-border bg-card shadow-soft;
+  }
+
+  .surface-muted {
+    @apply rounded-2xl border border-border bg-muted/70;
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground;
+  }
+}

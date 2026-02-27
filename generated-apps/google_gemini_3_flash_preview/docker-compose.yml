@@ -1,0 +1,9 @@
+services:
+  zeeter:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "${APP_PUBLIC_PORT}:4173"
+    env_file:
+      - .env

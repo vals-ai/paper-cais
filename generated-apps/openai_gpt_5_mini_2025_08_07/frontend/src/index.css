@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Design tokens */
+  --bg: #0f1724;
+  --surface: #0b1326;
+  --card: #0f1724;
+  --muted: #94a3b8;
+  --accent: #7c3aed;
+  --primary: #06b6d4;
+  --text: #e6eef6;
+  --radius: 12px;
+}
+
+/* Base app styles using tokens */
+html, body, #root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Small utility components */
+.container {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.5);
+}
+
+a { color: var(--accent); }
+
+/* Utility: truncated text */
+.line-clamp-3 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }

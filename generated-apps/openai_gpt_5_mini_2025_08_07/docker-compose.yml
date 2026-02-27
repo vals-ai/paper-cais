@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  zeeter:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+      args:
+        VITE_SUPABASE_URL: ${SUPABASE_PROJECT_URL}
+        VITE_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
+        APP_PUBLIC_PORT: ${APP_PUBLIC_PORT}
+        APP_PUBLIC_URL: ${APP_PUBLIC_URL}
+    ports:
+      - "${APP_PUBLIC_PORT}:4173"
+    env_file:
+      - .env
